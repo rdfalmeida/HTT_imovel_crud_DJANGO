@@ -11,29 +11,31 @@
                 <td>Finalidade</td>
                 <td>
                     <a href="{% url 'imovel_cadastro' %}" class="btn btn-outline-success">
-                        <i class="fas fa-plus"></i> Cadastrar Cliente
+                        <i></i> Cadastrar
                     </a>
                 </td>
             </tr>
         </thead>
         <tbody>
             {% for imovel in imovel_list %}
+            <tr>
                 <td>{{imovel.tipo}}</td>
                 <td>{{imovel.area}}</td>
                 <td>{{imovel.endereco}}</td>
                 <td>{{imovel.cep}}</td>
                 <td>{{imovel.position}}</td>
                 <td>
-                    <a href="{% url 'imovel_update' imovel.id %}" class="btn text-secondary px0">
+                    <a href="{% url 'imovel_update' imovel.id %}" class="btn text-secondary px-4">
                         <i class="far fa-edit fa-lg"></i>
                     </a>
                     <form action="{% url 'imovel_delete' imovel.id %}" method='post'>
                         {% csrf_token %}
-                        <button type="submit" class="btn">
+                        <button type="submit" class="btn px-4">
                             <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
                         </button>
                     </form>
                 </td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

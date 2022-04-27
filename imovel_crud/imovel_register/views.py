@@ -17,7 +17,7 @@ def imovel_form(request, id=0):
 		return render(request, "imovel_register/imovel_form.html", {'form':form})
 	else:
 		if id == 0:
-			form = ImovelForm(request.UPDATE)
+			form = ImovelForm(request.POST)
 		else:
 			imovel = Imovel.objects.get(pk=id)
 			form = ImovelForm(request.POST, instance=imovel)
